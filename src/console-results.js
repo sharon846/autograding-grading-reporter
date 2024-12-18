@@ -29,7 +29,6 @@ exports.ConsoleResults = function ConsoleResults(runnerResults) {
             console.log(`${COLORS.green}✅ ${test.name}${COLORS.reset}`)
           }
         } else if (test.status === 'error') {
-          console.log(test)
           console.log(`Error: ${test.message || `Failed to run test '${test.name}'`}\n${COLORS.reset}`)
         } else {
           if (test.line_no !== 0) {
