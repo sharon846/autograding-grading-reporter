@@ -22,7 +22,7 @@ exports.ConsoleResults = function ConsoleResults(runnerResults) {
 
       results.tests.forEach((test) => {
         if (test.status === 'pass') {
-          passedTests += 1
+          passedTests += (maxScore == score)
           if (test.line_no !== 0) {
             console.log(`${COLORS.green}✅ ${test.name} - line ${test.line_no}${COLORS.reset}`)
           } else {
