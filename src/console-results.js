@@ -39,9 +39,9 @@ exports.ConsoleResults = function ConsoleResults(runnerResults) {
           }
         }
         if (failed_tests != "") {
-          console.log(`${COLORS.red}❌ Failed test: ${failed_tests}`)  
+          console.log(`${COLORS.red}❌ Failed tests: ${failed_tests}\n`)  
         } else{
-          console.log(`${COLORS.green}✅ Failed test: None`)  
+          console.log(`${COLORS.green}✅ Failed test: None\n`)  
         }
         //if (test.test_code) {
         //  console.log(`Test code:\n${test.test_code}\n`)
