@@ -22,6 +22,11 @@ const getTestScore = (runnerResult) => {
   return tests[0]?.score || 0; 
 };
 
+const getFailedTests = (runnerResult) => {
+  const { tests } = runnerResult;
+  return tests[0]?.failed_tests || ""; 
+};
+
 const getTestWeight = (maxScore, allMaxScores) => {
   if (maxScore === 0) {
     return (0).toFixed(1);
