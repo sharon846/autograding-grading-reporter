@@ -41,3 +41,4 @@ exports.getTotalMaxScore = getTotalMaxScore;
 exports.totalPercentageReducer = totalPercentageReducer;
 exports.getTestScore = getTestScore;
 exports.getTestWeight = getTestWeight;
+exports.getFailedTests = getFailedTests;
