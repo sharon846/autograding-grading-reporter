@@ -1,6 +1,6 @@
 const {COLORS} = require('./colors')
 const {AggregateResults} = require('./aggregate-results')
-const {getTestScore, getMaxScoreForTest} = require('./helpers/test-helpers')
+const {getTestScore, getMaxScoreForTest, getFailedTests} = require('./helpers/test-helpers')
 
 exports.ConsoleResults = function ConsoleResults(runnerResults) {
   try {
@@ -11,7 +11,8 @@ exports.ConsoleResults = function ConsoleResults(runnerResults) {
       // Fun transition to new runner
       const maxScore = getMaxScoreForTest(results)
       // const weight = getTestWeight(maxScore, totalMaxScore);
-      const score = getTestScore(results)
+      const score = getTestScore(results);
+      const failed_tests = getFailedTests(results);
       if (index > 0) {
         console.log(`${COLORS.magenta}🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀${COLORS.reset}\n`)
       }
@@ -37,9 +38,14 @@ exports.ConsoleResults = function ConsoleResults(runnerResults) {
             console.log(`${COLORS.red}❌ ${test.name}${COLORS.reset}`)
           }
         }
-        if (test.test_code) {
-          console.log(`Test code:\n${test.test_code}\n`)
+        if (failed_tests != "") {
+          console.log(`${COLORS.red}❌ Failed test: ${failed_tests}`)  
+        } else{
+          console.log(`${COLORS.green}✅ Failed test: None`)  
         }
+        //if (test.test_code) {
+        //  console.log(`Test code:\n${test.test_code}\n`)
+        //}
       })
 
       // Update grand totals
